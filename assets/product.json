@@ -1,0 +1,27 @@
+
+[
+    {"pid":1,
+      "name":"Lock",
+      "code": "Ac345",
+      "available": true,
+      "price":100,
+      "rating":5,
+      "image":"/assets/lock.jpg"
+    },
+    {"pid":2,
+      "name":"tap",
+      "code": "pc",
+      "available": true,
+      "price":200,
+      "rating":4,
+      "image":"/assets/tap.jpg"
+    },
+    {"pid":3,
+      "name":"Door handle",
+      "code": "p1",
+      "available": false,
+      "price":500,
+      "rating":3.4,
+      "image":"/assets/doorhandle.jpg"
+    }
+]
