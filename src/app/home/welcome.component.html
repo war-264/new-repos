@@ -1,0 +1,81 @@
+<p class="text-center" >home page</p>
+
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+    text-align: center;
+  }
+  #name ,
+  #empid,
+  #location
+  
+  {
+    border-width: 0 0 2px;
+    border-color: blue transparent;
+   
+    outline: 0;
+    margin: 3px;
+    padding: auto;
+  }
+  label{
+    margin-left: 5px;
+    padding: 3px;
+  }
+  span{
+    color: blue;
+    font-size: medium;
+   margin-right: 6px;
+  }
+
+</style>
+<div ng-app=""  class="container ">
+  
+
+  <h3 class="alert alert-primary text-black" >{{homeTitle}}</h3>
+
+  <div style="height: 100px; width: 70%; margin: auto; position: sticky; background-color: aliceblue;" ngClass="card ">
+    <form  ng-init="submit=false">
+      <label >Employee full Name : </label><input style="width: 25%;"  type="text"  ng-model="name"  id="name"  /> 
+      <label >Employee id : </label><input style="width: 10%; "  type="text"  ng-model="empid"  id="empid"  /> 
+      <label >Work location: </label><select type="text" ng-model="location" >
+     
+        <option></option>
+        <option>Pune</option>
+        <option >Mumbai</option>
+        <option >Banglore</option>
+        <option >Hyderabad</option>
+      </select><br>
+ 
+      
+    </form>
+    
+    
+  </div>
+  <input ng-click="submit=!submit" style="margin-left: 169px; position: sticky; width: 70%; color: rgb(66, 78, 74);"  class="btn btn-sm btn-outline-warning " type="submit" />
+  <hr>
+  <div style="text-align: center; margin: auto;position: sticky;" ng-show="submit">
+    <b>Name of Employee <span ng-bind="name"> </span></b>
+    <b>Employee id :  <span ng-bind="empid"></span></b>
+    <b>Work Location :  <span ng-bind="location"></span></b>
+  </div>
+
+  
+ 
+  
+
+</div> 

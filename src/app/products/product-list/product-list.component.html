@@ -1,0 +1,71 @@
+
+
+
+
+
+
+<div  ngClass="card">
+    <div class="card-header ">
+        <h2 class="card-title alert-success text-center">{{pagetitle | uppercase}}</h2>
+    </div>
+    <div  class="card-body">
+        <div class="row">
+            <div class="col-md-2"> Filter: </div>
+            <div class="col-md-4">
+                <input   type ="text" [(ngModel)]="listFilter"  />
+
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <h4 >Filterby:{{listFilter}} <span ></span></h4>
+                </div>
+            </div>
+            <div class="table ">
+                <table  class="table table-hover" *ngIf='products.length ; else nop' >
+                    <thead >
+                        <tr>
+                            <th>
+                                <button  class="btn btn-primary"
+                                         (click)="imageToggle()">
+                                    {{showimage?'Hide':'Show'}} image
+                                </button>
+                            </th>
+                            <th>Product</th>
+                            <th>Code</th>
+                            <th>available</th>
+                            <th>price</th>
+                            <th>ratings</th>
+                        </tr>
+                    </thead>
+                     <tbody  *ngFor="let p of filterProducts ">
+                        <tr   >
+                            <td ><img *ngIf="showimage" 
+                                      [src]="p.image"
+                                      [title]="p.name"
+                                      [style.width.px]="imageWidth"
+                                      [style.margin.px]="imageMargin"/></td>
+                            <td ><a [routerLink]="['/products',p.pid]">{{p.name}}</a></td>
+                            <td>{{p.code | CodePipe : '_'}}</td>
+                            <td class="text  text-{{p.available?'success':'danger'}} ;" >{{p.available?'Available':'Sold'}}</td>
+                            <td>{{p.price|currency}}</td>
+                            <td  ><app-StarComponent [rating]="p.rating"
+                                (ratingClicked)="onRatingClicked($event)" ></app-StarComponent></td>
+
+                            
+                        </tr>
+                       
+
+
+                     </tbody>
+                  </table>
+                  <ng-template #nop>
+                  <div class="alert alert-danger text-center" ng-else> No Product Available</div>
+                  </ng-template>        
+             
+            </div>
+        </div>
+</div>
+
+<!-- </div> -->
+
+<!-- *ngIf="Lfilter.toLowerCase()==(p.name.toLowerCase() ) || !Lfilter" -->
